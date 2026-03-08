@@ -177,6 +177,82 @@ body {
   color: var(--text-muted);
 }
 
+/* Reference / table pages */
+.ref-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.ref-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.ref-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-card);
+}
+
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.ref-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.ref-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.ref-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ref-table .mono {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 0.85rem;
+}
+
+.material-cell {
+  font-weight: 600;
+}
+
+.material-link {
+  color: #ffeaa7;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(255, 234, 167, 0.4);
+  transition: border-color 0.2s;
+}
+
+.material-link:hover {
+  border-bottom-color: #ffeaa7;
+}
+
+.material-nolink {
+  color: var(--text-muted);
+}
+
 /* Visualization page wrapper */
 .viz-page {
   flex: 1;
