@@ -1,0 +1,57 @@
+/**
+ * Visualization registry — add new entries here to extend the site.
+ *
+ * Each entry defines:
+ *   slug       – URL path segment (must be unique)
+ *   title      – human-readable title shown on cards and page headers
+ *   subtitle   – short description / tagline
+ *   category   – grouping label (used for filtering on the homepage)
+ *   color      – accent color for the card
+ *   component  – lazy-loaded React component (must default-export the viz)
+ */
+import { lazy } from "react";
+
+const registry = [
+  {
+    slug: "bto-phase-transitions",
+    title: "BaTiO\u2083 Phase Transitions",
+    subtitle: "Cubic \u2192 Tetragonal \u2192 Orthorhombic \u2192 Rhombohedral",
+    category: "Phase Transitions",
+    color: "#4ecdc4",
+    component: lazy(() => import("./visualizations/BtoPhaseTransitions.jsx")),
+  },
+  {
+    slug: "pto-phase-transition",
+    title: "PbTiO\u2083 Phase Transition",
+    subtitle: "Cubic \u2192 Tetragonal with large c/a distortion",
+    category: "Phase Transitions",
+    color: "#ff6b6b",
+    component: lazy(() => import("./visualizations/PtoPhaseTransition.jsx")),
+  },
+  {
+    slug: "cgb-phase-transition",
+    title: "CsGeBr\u2083 Phase Transition",
+    subtitle: "Cubic \u2192 Rhombohedral halide perovskite",
+    category: "Phase Transitions",
+    color: "#a29bfe",
+    component: lazy(() => import("./visualizations/CgbPhaseTransition.jsx")),
+  },
+  {
+    slug: "hfo2-phase-transitions",
+    title: "HfO\u2082 Phase Transitions",
+    subtitle: "Tetragonal \u2192 Monoclinic \u2192 Orthorhombic (ferroelectric)",
+    category: "Phase Transitions",
+    color: "#fd79a8",
+    component: lazy(() => import("./visualizations/Hfo2PhaseTransitions.jsx")),
+  },
+  {
+    slug: "crystal-phases-study",
+    title: "Crystal Phases Study Guide",
+    subtitle: "Comparative symmetry & point-group reference",
+    category: "Reference",
+    color: "#feca57",
+    component: lazy(() => import("./visualizations/CrystalPhasesStudy.jsx")),
+  },
+];
+
+export default registry;
