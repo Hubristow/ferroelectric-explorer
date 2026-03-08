@@ -258,6 +258,36 @@ body {
   color: var(--text-muted);
 }
 
+.ref-section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ref-section-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.ref-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.row-polar {
+  background: rgba(78, 205, 196, 0.06);
+}
+
+.space-groups-cell {
+  max-width: 400px;
+  word-break: break-word;
+}
+
 /* Visualization page wrapper */
 .viz-page {
   flex: 1;
