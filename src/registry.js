@@ -44,14 +44,6 @@ const registry = [
     color: "#fd79a8",
     component: lazy(() => import("./visualizations/Hfo2PhaseTransitions.jsx")),
   },
-  {
-    slug: "crystal-phases-study",
-    title: "Crystal Phases Study Guide",
-    subtitle: "Comparative symmetry & point-group reference",
-    category: "Reference",
-    color: "#feca57",
-    component: lazy(() => import("./visualizations/CrystalPhasesStudy.jsx")),
-  },
 ];
 
 export default registry;
