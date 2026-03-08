@@ -12,24 +12,6 @@
 import { lazy } from "react";
 
 const registry = [
-  /* ── Reference Tables ─────────────────────────────────────────────── */
-  {
-    slug: "phase-sequences",
-    title: "Ferroelectric Phase Sequences",
-    subtitle: "Space groups, point groups & crystal systems for each material phase",
-    category: "Reference Tables",
-    color: "#ffeaa7",
-    component: lazy(() => import("./pages/PhaseSequences.jsx")),
-  },
-  {
-    slug: "polar-point-groups",
-    title: "Polar Point Groups & Space Groups",
-    subtitle: "Schoenflies & International notation for the 10 polar point groups",
-    category: "Reference Tables",
-    color: "#74b9ff",
-    component: lazy(() => import("./pages/PolarPointGroups.jsx")),
-  },
-  /* ── Phase Transitions ────────────────────────────────────────────── */
   {
     slug: "bto-phase-transitions",
     title: "BaTiO\u2083 Phase Transitions",

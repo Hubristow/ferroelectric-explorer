@@ -80,6 +80,11 @@ body {
   color: var(--text);
 }
 
+.nav-link.active {
+  color: var(--text);
+  border-bottom-color: #4ecdc4;
+}
+
 /* Main content */
 .main-content {
   flex: 1;
