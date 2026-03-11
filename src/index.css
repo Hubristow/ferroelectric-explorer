@@ -7,12 +7,12 @@
 }
 
 :root {
-  --bg: #0a0e1a;
-  --bg-surface: #141825;
-  --bg-card: #1a1f30;
-  --text: #e0e0e0;
-  --text-muted: #8890a4;
-  --border: #2a2f42;
+  --bg: #faf6f0;
+  --bg-surface: #f0ebe2;
+  --bg-card: #ffffff;
+  --text: #2d2418;
+  --text-muted: #8a7e6b;
+  --border: #ddd5c8;
   --nav-height: 56px;
 }
 
@@ -21,10 +21,10 @@ html, body, #root {
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -51,7 +51,8 @@ body {
 }
 
 .nav-brand {
-  font-weight: 700;
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-weight: 600;
   font-size: 1.05rem;
   color: var(--text);
   text-decoration: none;
@@ -82,7 +83,7 @@ body {
 
 .nav-link.active {
   color: var(--text);
-  border-bottom-color: #4ecdc4;
+  border-bottom-color: #2a9d8f;
 }
 
 /* Main content */
@@ -106,42 +107,46 @@ body {
 .home {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 3.5rem 1.5rem;
 }
 
 .hero {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .hero h1 {
+  font-family: "IBM Plex Serif", Georgia, serif;
   font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
 }
 
 .hero-sub {
   color: var(--text-muted);
   font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .category-section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .category-title {
+  font-family: "IBM Plex Serif", Georgia, serif;
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .card {
@@ -149,10 +154,10 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 1.25rem;
+  padding: 1.5rem;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.15s, border-color 0.2s;
+  transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
   position: relative;
   overflow: hidden;
 }
@@ -160,6 +165,7 @@ body {
 .card:hover {
   transform: translateY(-2px);
   border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(45, 36, 24, 0.08);
 }
 
 .card-color-bar {
@@ -172,33 +178,37 @@ body {
 }
 
 .card-title {
+  font-family: "IBM Plex Serif", Georgia, serif;
   font-size: 1.05rem;
   font-weight: 600;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .card-subtitle {
   font-size: 0.85rem;
   color: var(--text-muted);
+  line-height: 1.5;
 }
 
 /* Reference / table pages */
 .ref-page {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem;
+  padding: 3rem 1.5rem 4rem;
 }
 
 .ref-title {
+  font-family: "IBM Plex Serif", Georgia, serif;
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.4rem;
 }
 
 .ref-subtitle {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
 }
 
 .table-wrap {
@@ -235,7 +245,7 @@ body {
 }
 
 .ref-table .mono {
-  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-family: "IBM Plex Mono", "SF Mono", "Fira Code", monospace;
   font-size: 0.85rem;
 }
 
@@ -244,14 +254,14 @@ body {
 }
 
 .material-link {
-  color: #ffeaa7;
+  color: #8b6914;
   text-decoration: none;
-  border-bottom: 1px dashed rgba(255, 234, 167, 0.4);
+  border-bottom: 1px dashed rgba(139, 105, 20, 0.4);
   transition: border-color 0.2s;
 }
 
 .material-link:hover {
-  border-bottom-color: #ffeaa7;
+  border-bottom-color: #8b6914;
 }
 
 .material-nolink {
@@ -259,8 +269,9 @@ body {
 }
 
 .ref-section-title {
+  font-family: "IBM Plex Serif", Georgia, serif;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 2.5rem;
   margin-bottom: 0.5rem;
 }
@@ -276,11 +287,11 @@ body {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .row-polar {
-  background: rgba(78, 205, 196, 0.06);
+  background: rgba(42, 157, 143, 0.06);
 }
 
 .space-groups-cell {

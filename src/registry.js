@@ -17,7 +17,7 @@ const registry = [
     title: "BaTiO\u2083 Phase Transitions",
     subtitle: "Cubic \u2192 Tetragonal \u2192 Orthorhombic \u2192 Rhombohedral",
     category: "Phase Transitions",
-    color: "#4ecdc4",
+    color: "#2a9d8f",
     component: lazy(() => import("./visualizations/BtoPhaseTransitions.jsx")),
   },
   {
@@ -25,7 +25,7 @@ const registry = [
     title: "PbTiO\u2083 Phase Transition",
     subtitle: "Cubic \u2192 Tetragonal with large c/a distortion",
     category: "Phase Transitions",
-    color: "#ff6b6b",
+    color: "#c44d3f",
     component: lazy(() => import("./visualizations/PtoPhaseTransition.jsx")),
   },
   {
@@ -33,7 +33,7 @@ const registry = [
     title: "CsGeBr\u2083 Phase Transition",
     subtitle: "Cubic \u2192 Rhombohedral halide perovskite",
     category: "Phase Transitions",
-    color: "#a29bfe",
+    color: "#7b68ae",
     component: lazy(() => import("./visualizations/CgbPhaseTransition.jsx")),
   },
   {
@@ -41,7 +41,7 @@ const registry = [
     title: "HfO\u2082 Phase Transitions",
     subtitle: "Tetragonal \u2192 Monoclinic \u2192 Orthorhombic (ferroelectric)",
     category: "Phase Transitions",
-    color: "#fd79a8",
+    color: "#b85c7a",
     component: lazy(() => import("./visualizations/Hfo2PhaseTransitions.jsx")),
   },
 ];
