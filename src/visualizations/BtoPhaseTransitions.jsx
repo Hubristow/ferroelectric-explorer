@@ -121,14 +121,14 @@ export default function App() {
       [-1,-1,1],[1,-1,1],[-1,1,1],[1,1,1],
     ];
     baPositions.forEach(pos => {
-      const ba = createSphere(0.18, 0x22cc88, 0x114422);
+      const ba = createSphere(0.18, 0x2daa78, 0x1a4030);
       ba.position.set(...pos.map(v => v * 0.5));
       cellGroup.add(ba);
       baAtoms.push(ba);
     });
 
     // Ti atom at center
-    const ti = createSphere(0.14, 0x4488ff, 0x112244);
+    const ti = createSphere(0.14, 0x3d72c4, 0x1a2e50);
     cellGroup.add(ti);
 
     // O atoms at face centers (6 faces)
@@ -139,14 +139,14 @@ export default function App() {
       [0, 0, 0.5], [0, 0, -0.5],  // z faces
     ];
     oBasePositions.forEach(pos => {
-      const o = createSphere(0.12, 0xff4444, 0x331111);
+      const o = createSphere(0.12, 0xc44040, 0x3a1818);
       o.position.set(...pos);
       cellGroup.add(o);
       oAtoms.push(o);
     });
 
     // Wireframe edges
-    const edgeMat = new THREE.LineBasicMaterial({ color: 0x2d2418, transparent: true, opacity: 0.15 });
+    const edgeMat = new THREE.LineBasicMaterial({ color: 0x2d2418, transparent: true, opacity: 0.3 });
     const edgeGeo = new THREE.BufferGeometry();
     const edgeLines = new THREE.LineSegments(edgeGeo, edgeMat);
     cellGroup.add(edgeLines);
@@ -178,13 +178,13 @@ export default function App() {
     };
 
     const axisArrowA = new THREE.ArrowHelper(
-      new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 0, 0), 1, 0xcc4444, 0.08, 0.05
+      new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 0, 0), 1, 0xcc4444, 0.10, 0.065
     );
     const axisArrowB = new THREE.ArrowHelper(
-      new THREE.Vector3(0, 1, 0), new THREE.Vector3(0, 0, 0), 1, 0x339933, 0.08, 0.05
+      new THREE.Vector3(0, 1, 0), new THREE.Vector3(0, 0, 0), 1, 0x339933, 0.10, 0.065
     );
     const axisArrowC = new THREE.ArrowHelper(
-      new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 0, 0), 1, 0x4477cc, 0.08, 0.05
+      new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 0, 0), 1, 0x4477cc, 0.10, 0.065
     );
     axisGroup.add(axisArrowA);
     axisGroup.add(axisArrowB);
@@ -271,11 +271,11 @@ export default function App() {
           p.tiShift[1],
           p.tiShift[2]
         );
-        const len = 0.6;
+        const len = 0.7;
         const arrowHelper = new THREE.ArrowHelper(
           dir, origin, len,
           new THREE.Color(p.color).getHex(),
-          0.12, 0.08
+          0.16, 0.11
         );
         arrowGroup.add(arrowHelper);
       }
@@ -290,7 +290,7 @@ export default function App() {
       const aLen = aVec.length();
       axisArrowA.position.copy(originOffset);
       axisArrowA.setDirection(aVec.clone().normalize());
-      axisArrowA.setLength(aLen + 0.15, 0.08, 0.05);
+      axisArrowA.setLength(aLen + 0.15, 0.10, 0.065);
       labelA.position.copy(originOffset).add(aVec.clone().normalize().multiplyScalar(aLen + 0.28));
 
       // b-vector: corner[0] → corner[2] (along y)
@@ -298,7 +298,7 @@ export default function App() {
       const bLen = bVec.length();
       axisArrowB.position.copy(originOffset);
       axisArrowB.setDirection(bVec.clone().normalize());
-      axisArrowB.setLength(bLen + 0.15, 0.08, 0.05);
+      axisArrowB.setLength(bLen + 0.15, 0.10, 0.065);
       labelB.position.copy(originOffset).add(bVec.clone().normalize().multiplyScalar(bLen + 0.28));
 
       // c-vector: corner[0] → corner[4] (along z)
@@ -306,7 +306,7 @@ export default function App() {
       const cLen = cVec.length();
       axisArrowC.position.copy(originOffset);
       axisArrowC.setDirection(cVec.clone().normalize());
-      axisArrowC.setLength(cLen + 0.15, 0.08, 0.05);
+      axisArrowC.setLength(cLen + 0.15, 0.10, 0.065);
       labelC.position.copy(originOffset).add(cVec.clone().normalize().multiplyScalar(cLen + 0.28));
     };
 
@@ -628,9 +628,9 @@ export default function App() {
         borderTop: "1px solid rgba(45,36,24,0.05)",
       }}>
         {[
-          { color: "#22cc88", label: "Ba²⁺ (corners)" },
-          { color: "#4488ff", label: "Ti⁴⁺ (center)" },
-          { color: "#ff4444", label: "O²⁻ (faces)" },
+          { color: "#2daa78", label: "Ba²⁺ (corners)" },
+          { color: "#3d72c4", label: "Ti⁴⁺ (center)" },
+          { color: "#c44040", label: "O²⁻ (faces)" },
           { color: phase.color, label: "P (polarization)", arrow: true },
         ].map((l, i) => (
           <div key={i} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: "rgba(45,36,24,0.55)" }}>
