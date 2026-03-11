@@ -6,7 +6,7 @@ const PHASES = [
     name: "Cubic",
     label: "Pm3̄m · Oₕ",
     temp: "> 393 K",
-    color: "#888888",
+    color: "#706b63",
     desc: "Paraelectric. Ti centered. No polarization. Perfect cube.",
     // Unit cell: a=b=c, 90° angles, Ti at center
     cell: { a: 1, b: 1, c: 1, alpha: 90 },
@@ -18,7 +18,7 @@ const PHASES = [
     name: "Tetragonal",
     label: "P4mm · C₄ᵥ",
     temp: "393–278 K",
-    color: "#4ecdc4",
+    color: "#2a9d8f",
     desc: "Ferroelectric. Ti displaced along c [001]. c-axis elongated. P ∥ ĉ.",
     cell: { a: 1, b: 1, c: 1.15, alpha: 90 },
     tiShift: [0, 0, 0.08],
@@ -29,7 +29,7 @@ const PHASES = [
     name: "Orthorhombic",
     label: "Amm2 · C₂ᵥ",
     temp: "278–183 K",
-    color: "#feca57",
+    color: "#c4952a",
     desc: "Ferroelectric. Ti displaced along [011]. a≠b≠c, all 90°. P ∥ [011].",
     cell: { a: 0.95, b: 1.05, c: 1.08, alpha: 90 },
     tiShift: [0, 0.06, 0.06],
@@ -40,7 +40,7 @@ const PHASES = [
     name: "Rhombohedral",
     label: "R3m · C₃ᵥ",
     temp: "< 183 K",
-    color: "#a29bfe",
+    color: "#7b68ae",
     desc: "Ferroelectric. Ti displaced along [111]. a=b=c, α≠90°. P ∥ [111].",
     cell: { a: 1.02, b: 1.02, c: 1.02, alpha: 85 },
     tiShift: [0.05, 0.05, 0.05],
@@ -75,7 +75,7 @@ export default function App() {
     const h = container.clientHeight;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a0e1a);
+    scene.background = new THREE.Color(0xfaf6f0);
 
     const camera = new THREE.PerspectiveCamera(35, w / h, 0.1, 100);
     camera.position.set(3.0, 1.8, 3.0);
@@ -92,7 +92,7 @@ export default function App() {
     const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
     dirLight.position.set(5, 8, 5);
     scene.add(dirLight);
-    const dirLight2 = new THREE.DirectionalLight(0x4ecdc4, 0.3);
+    const dirLight2 = new THREE.DirectionalLight(0x2a9d8f, 0.3);
     dirLight2.position.set(-3, -2, 4);
     scene.add(dirLight2);
 
@@ -146,7 +146,7 @@ export default function App() {
     });
 
     // Wireframe edges
-    const edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.15 });
+    const edgeMat = new THREE.LineBasicMaterial({ color: 0x2d2418, transparent: true, opacity: 0.15 });
     const edgeGeo = new THREE.BufferGeometry();
     const edgeLines = new THREE.LineSegments(edgeGeo, edgeMat);
     cellGroup.add(edgeLines);
@@ -165,7 +165,7 @@ export default function App() {
       canvas.width = 64;
       canvas.height = 64;
       const ctx = canvas.getContext("2d");
-      ctx.font = "bold 48px Georgia";
+      ctx.font = "bold 48px 'IBM Plex Serif', Georgia";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillStyle = color;
@@ -178,21 +178,21 @@ export default function App() {
     };
 
     const axisArrowA = new THREE.ArrowHelper(
-      new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 0, 0), 1, 0xff4444, 0.08, 0.05
+      new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 0, 0), 1, 0xcc4444, 0.08, 0.05
     );
     const axisArrowB = new THREE.ArrowHelper(
-      new THREE.Vector3(0, 1, 0), new THREE.Vector3(0, 0, 0), 1, 0x44dd44, 0.08, 0.05
+      new THREE.Vector3(0, 1, 0), new THREE.Vector3(0, 0, 0), 1, 0x339933, 0.08, 0.05
     );
     const axisArrowC = new THREE.ArrowHelper(
-      new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 0, 0), 1, 0x4488ff, 0.08, 0.05
+      new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 0, 0), 1, 0x4477cc, 0.08, 0.05
     );
     axisGroup.add(axisArrowA);
     axisGroup.add(axisArrowB);
     axisGroup.add(axisArrowC);
 
-    const labelA = createLabel("a", "#ff6666");
-    const labelB = createLabel("b", "#66dd66");
-    const labelC = createLabel("c", "#6699ff");
+    const labelA = createLabel("a", "#cc4444");
+    const labelB = createLabel("b", "#339933");
+    const labelC = createLabel("c", "#4477cc");
     axisGroup.add(labelA);
     axisGroup.add(labelB);
     axisGroup.add(labelC);
@@ -419,19 +419,19 @@ export default function App() {
 
   return (
     <div style={{
-      minHeight: "100vh", background: "#0a0e1a", color: "white",
-      fontFamily: "'Segoe UI', system-ui, sans-serif",
+      minHeight: "100vh", background: "#faf6f0", color: "#2d2418",
+      fontFamily: "'IBM Plex Sans', system-ui, sans-serif",
       display: "flex", flexDirection: "column",
     }}>
       {/* Header */}
       <div style={{ padding: "24px 28px 0" }}>
         <h1 style={{
           fontSize: 22, fontWeight: 300, margin: 0,
-          fontFamily: "'Georgia', serif", color: "rgba(255,255,255,0.9)",
+          fontFamily: "'IBM Plex Serif', Georgia, serif", color: "rgba(45,36,24,0.85)",
         }}>
           BaTiO₃ Phase Transitions
         </h1>
-        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", margin: "4px 0 0", fontFamily: "monospace" }}>
+        <p style={{ fontSize: 12, color: "rgba(45,36,24,0.4)", margin: "4px 0 0", fontFamily: "'IBM Plex Mono', monospace" }}>
           Cubic Oₕ → Tetragonal C₄ᵥ → Orthorhombic C₂ᵥ → Rhombohedral C₃ᵥ
         </p>
       </div>
@@ -444,7 +444,7 @@ export default function App() {
           margin: "16px 20px",
           borderRadius: 16,
           overflow: "hidden",
-          border: "1px solid rgba(255,255,255,0.06)",
+          border: "1px solid rgba(45,36,24,0.07)",
         }}
       />
 
@@ -456,27 +456,27 @@ export default function App() {
         }}>
           <span style={{
             fontSize: 28, fontWeight: 700, color: phase.color,
-            fontFamily: "'Georgia', serif",
+            fontFamily: "'IBM Plex Serif', Georgia, serif",
             transition: "color 0.5s",
           }}>
             {phase.name}
           </span>
           <span style={{
-            fontSize: 14, color: "rgba(255,255,255,0.5)",
-            fontFamily: "monospace",
+            fontSize: 14, color: "rgba(45,36,24,0.55)",
+            fontFamily: "'IBM Plex Mono', monospace",
           }}>
             {phase.label}
           </span>
           <span style={{
-            fontSize: 12, color: "rgba(255,255,255,0.3)",
-            fontFamily: "monospace",
+            fontSize: 12, color: "rgba(45,36,24,0.3)",
+            fontFamily: "'IBM Plex Mono', monospace",
             marginLeft: "auto",
           }}>
             {phase.temp}
           </span>
         </div>
         <p style={{
-          fontSize: 14, color: "rgba(255,255,255,0.55)",
+          fontSize: 14, color: "rgba(45,36,24,0.6)",
           margin: "0 0 12px", lineHeight: 1.6,
         }}>
           {phase.desc}
@@ -485,39 +485,39 @@ export default function App() {
         <div style={{
           display: "flex", gap: 16, flexWrap: "wrap",
           padding: "10px 14px", borderRadius: 8,
-          background: "rgba(255,255,255,0.03)",
-          border: "1px solid rgba(255,255,255,0.06)",
-          marginBottom: 20, fontFamily: "monospace", fontSize: 13,
+          background: "rgba(45,36,24,0.04)",
+          border: "1px solid rgba(45,36,24,0.07)",
+          marginBottom: 20, fontFamily: "'IBM Plex Mono', monospace", fontSize: 13,
           alignItems: "center",
         }}>
-          <span style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", textTransform: "uppercase", letterSpacing: 1 }}>
+          <span style={{ fontSize: 10, color: "rgba(45,36,24,0.3)", textTransform: "uppercase", letterSpacing: 1 }}>
             Lattice:
           </span>
           <span>
-            <span style={{ color: "#ff6666", fontWeight: 700 }}>a</span>
-            <span style={{ color: "rgba(255,255,255,0.5)" }}> = {phase.cell.a.toFixed(2)}</span>
+            <span style={{ color: "#cc4444", fontWeight: 700 }}>a</span>
+            <span style={{ color: "rgba(45,36,24,0.55)" }}> = {phase.cell.a.toFixed(2)}</span>
           </span>
           <span>
-            <span style={{ color: "#66dd66", fontWeight: 700 }}>b</span>
-            <span style={{ color: "rgba(255,255,255,0.5)" }}> = {phase.cell.b.toFixed(2)}</span>
+            <span style={{ color: "#339933", fontWeight: 700 }}>b</span>
+            <span style={{ color: "rgba(45,36,24,0.55)" }}> = {phase.cell.b.toFixed(2)}</span>
           </span>
           <span>
-            <span style={{ color: "#6699ff", fontWeight: 700 }}>c</span>
-            <span style={{ color: "rgba(255,255,255,0.5)" }}> = {phase.cell.c.toFixed(2)}</span>
+            <span style={{ color: "#4477cc", fontWeight: 700 }}>c</span>
+            <span style={{ color: "rgba(45,36,24,0.55)" }}> = {phase.cell.c.toFixed(2)}</span>
           </span>
-          <span style={{ color: "rgba(255,255,255,0.3)" }}>│</span>
+          <span style={{ color: "rgba(45,36,24,0.3)" }}>│</span>
           <span>
-            <span style={{ color: "rgba(255,255,255,0.4)" }}>α = </span>
-            <span style={{ color: phase.cell.alpha === 90 ? "rgba(255,255,255,0.5)" : "#feca57", fontWeight: phase.cell.alpha !== 90 ? 700 : 400 }}>
+            <span style={{ color: "rgba(45,36,24,0.45)" }}>α = </span>
+            <span style={{ color: phase.cell.alpha === 90 ? "rgba(45,36,24,0.55)" : "#c4952a", fontWeight: phase.cell.alpha !== 90 ? 700 : 400 }}>
               {phase.cell.alpha}°
             </span>
           </span>
           {phase.cell.a === phase.cell.b && phase.cell.b === phase.cell.c ? (
-            <span style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", fontStyle: "italic" }}>a=b=c</span>
+            <span style={{ fontSize: 10, color: "rgba(45,36,24,0.25)", fontStyle: "italic" }}>a=b=c</span>
           ) : phase.cell.a === phase.cell.b ? (
-            <span style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", fontStyle: "italic" }}>a=b≠c</span>
+            <span style={{ fontSize: 10, color: "rgba(45,36,24,0.25)", fontStyle: "italic" }}>a=b≠c</span>
           ) : (
-            <span style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", fontStyle: "italic" }}>a≠b≠c</span>
+            <span style={{ fontSize: 10, color: "rgba(45,36,24,0.25)", fontStyle: "italic" }}>a≠b≠c</span>
           )}
         </div>
       </div>
@@ -529,12 +529,12 @@ export default function App() {
           display: "flex", alignItems: "center", gap: 8,
           marginBottom: 16,
         }}>
-          <span style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", fontFamily: "monospace", whiteSpace: "nowrap" }}>
+          <span style={{ fontSize: 10, color: "rgba(45,36,24,0.3)", fontFamily: "'IBM Plex Mono', monospace", whiteSpace: "nowrap" }}>
             HOT
           </span>
           <div style={{
             flex: 1, height: 4, borderRadius: 2,
-            background: "rgba(255,255,255,0.06)", position: "relative",
+            background: "rgba(45,36,24,0.07)", position: "relative",
             overflow: "visible",
           }}>
             <div style={{
@@ -558,7 +558,7 @@ export default function App() {
                   width: phaseIdx === i ? 14 : 8,
                   height: phaseIdx === i ? 14 : 8,
                   borderRadius: "50%",
-                  background: phaseIdx === i ? p.color : "rgba(255,255,255,0.2)",
+                  background: phaseIdx === i ? p.color : "rgba(45,36,24,0.2)",
                   border: `2px solid ${phaseIdx === i ? p.color : "transparent"}`,
                   boxShadow: phaseIdx === i ? `0 0 12px ${p.color}60` : "none",
                   cursor: "pointer",
@@ -568,7 +568,7 @@ export default function App() {
               />
             ))}
           </div>
-          <span style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", fontFamily: "monospace", whiteSpace: "nowrap" }}>
+          <span style={{ fontSize: 10, color: "rgba(45,36,24,0.3)", fontFamily: "'IBM Plex Mono', monospace", whiteSpace: "nowrap" }}>
             COLD
           </span>
         </div>
@@ -583,14 +583,14 @@ export default function App() {
                 flex: 1,
                 padding: "10px 8px",
                 borderRadius: 10,
-                border: `1px solid ${phaseIdx === i ? p.color + "50" : "rgba(255,255,255,0.06)"}`,
-                background: phaseIdx === i ? p.color + "15" : "rgba(255,255,255,0.02)",
-                color: phaseIdx === i ? p.color : "rgba(255,255,255,0.4)",
+                border: `1px solid ${phaseIdx === i ? p.color + "50" : "rgba(45,36,24,0.07)"}`,
+                background: phaseIdx === i ? p.color + "15" : "rgba(45,36,24,0.03)",
+                color: phaseIdx === i ? p.color : "rgba(45,36,24,0.45)",
                 cursor: "pointer",
                 transition: "all 0.3s",
                 textAlign: "center",
                 fontSize: 11,
-                fontFamily: "monospace",
+                fontFamily: "'IBM Plex Mono', monospace",
                 lineHeight: 1.4,
               }}
             >
@@ -605,14 +605,14 @@ export default function App() {
           <button
             onClick={() => setAutoPlay(!autoPlay)}
             style={{
-              background: autoPlay ? "rgba(78,205,196,0.15)" : "rgba(255,255,255,0.04)",
-              border: `1px solid ${autoPlay ? "rgba(78,205,196,0.3)" : "rgba(255,255,255,0.08)"}`,
-              color: autoPlay ? "#4ecdc4" : "rgba(255,255,255,0.4)",
+              background: autoPlay ? "rgba(42,157,143,0.15)" : "rgba(45,36,24,0.04)",
+              border: `1px solid ${autoPlay ? "rgba(42,157,143,0.3)" : "rgba(45,36,24,0.08)"}`,
+              color: autoPlay ? "#2a9d8f" : "rgba(45,36,24,0.45)",
               padding: "6px 20px",
               borderRadius: 20,
               cursor: "pointer",
               fontSize: 11,
-              fontFamily: "monospace",
+              fontFamily: "'IBM Plex Mono', monospace",
               transition: "all 0.3s",
             }}
           >
@@ -625,7 +625,7 @@ export default function App() {
       <div style={{
         padding: "12px 28px 20px",
         display: "flex", gap: 20, flexWrap: "wrap",
-        borderTop: "1px solid rgba(255,255,255,0.05)",
+        borderTop: "1px solid rgba(45,36,24,0.05)",
       }}>
         {[
           { color: "#22cc88", label: "Ba²⁺ (corners)" },
@@ -633,7 +633,7 @@ export default function App() {
           { color: "#ff4444", label: "O²⁻ (faces)" },
           { color: phase.color, label: "P (polarization)", arrow: true },
         ].map((l, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: "rgba(255,255,255,0.5)" }}>
+          <div key={i} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: "rgba(45,36,24,0.55)" }}>
             {l.arrow ? (
               <span style={{ color: l.color, fontSize: 14 }}>→</span>
             ) : (
@@ -646,15 +646,15 @@ export default function App() {
             <span>{l.label}</span>
           </div>
         ))}
-        <span style={{ color: "rgba(255,255,255,0.1)" }}>│</span>
+        <span style={{ color: "rgba(45,36,24,0.1)" }}>│</span>
         {[
-          { color: "#ff6666", label: "a" },
-          { color: "#66dd66", label: "b" },
-          { color: "#6699ff", label: "c" },
+          { color: "#cc4444", label: "a" },
+          { color: "#339933", label: "b" },
+          { color: "#4477cc", label: "c" },
         ].map((l, i) => (
-          <div key={`ax${i}`} style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "rgba(255,255,255,0.5)" }}>
+          <div key={`ax${i}`} style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "rgba(45,36,24,0.55)" }}>
             <span style={{ color: l.color, fontSize: 13, fontWeight: 700 }}>→</span>
-            <span style={{ color: l.color, fontWeight: 600, fontFamily: "monospace" }}>{l.label}</span>
+            <span style={{ color: l.color, fontWeight: 600, fontFamily: "'IBM Plex Mono', monospace" }}>{l.label}</span>
           </div>
         ))}
       </div>
