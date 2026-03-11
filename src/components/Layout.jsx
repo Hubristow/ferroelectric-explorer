@@ -17,6 +17,9 @@ export default function Layout() {
           <NavLink to="/polar-point-groups" className="nav-link">
             Polar &amp; Space Groups
           </NavLink>
+          <NavLink to="/material-properties" className="nav-link">
+            Material Properties
+          </NavLink>
         </div>
       </nav>
       <main className="main-content">

@@ -8,6 +8,7 @@ import registry from "./registry.js";
 
 const PhaseSequences = lazy(() => import("./pages/PhaseSequences.jsx"));
 const PolarPointGroups = lazy(() => import("./pages/PolarPointGroups.jsx"));
+const MaterialProperties = lazy(() => import("./pages/MaterialProperties.jsx"));
 
 export default function App() {
   return (
@@ -28,6 +29,14 @@ export default function App() {
           element={
             <Suspense fallback={<div className="loading">Loading...</div>}>
               <PolarPointGroups />
+            </Suspense>
+          }
+        />
+        <Route
+          path="material-properties"
+          element={
+            <Suspense fallback={<div className="loading">Loading...</div>}>
+              <MaterialProperties />
             </Suspense>
           }
         />
