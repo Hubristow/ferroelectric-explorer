@@ -94,14 +94,14 @@ export default function App() {
       [-1,-1,1],[1,-1,1],[-1,1,1],[1,1,1],
     ];
     csBasePositions.forEach(pos => {
-      const cs = createSphere(0.20, 0xddaa22, 0x554400);
+      const cs = createSphere(0.20, 0xc9982a, 0x4a3d15);
       cs.position.set(...pos.map(v => v * 0.5));
       cellGroup.add(cs);
       csAtoms.push(cs);
     });
 
     // Ge atom at center (B-site) — teal/dark cyan
-    const ge = createSphere(0.13, 0x22aaaa, 0x114444);
+    const ge = createSphere(0.13, 0x2a8f8f, 0x1a3838);
     cellGroup.add(ge);
 
     // Br atoms at face centers (X-site) — dark orange/brown
@@ -113,7 +113,7 @@ export default function App() {
     }
 
     // Edges
-    const edgeMat = new THREE.LineBasicMaterial({ color: 0x2d2418, transparent: true, opacity: 0.15 });
+    const edgeMat = new THREE.LineBasicMaterial({ color: 0x2d2418, transparent: true, opacity: 0.3 });
     const edgeGeo = new THREE.BufferGeometry();
     const edgeLines = new THREE.LineSegments(edgeGeo, edgeMat);
     cellGroup.add(edgeLines);
@@ -141,9 +141,9 @@ export default function App() {
       return sprite;
     };
 
-    const axisArrowA = new THREE.ArrowHelper(new THREE.Vector3(1,0,0), new THREE.Vector3(0,0,0), 1, 0xcc4444, 0.08, 0.05);
-    const axisArrowB = new THREE.ArrowHelper(new THREE.Vector3(0,1,0), new THREE.Vector3(0,0,0), 1, 0x339933, 0.08, 0.05);
-    const axisArrowC = new THREE.ArrowHelper(new THREE.Vector3(0,0,1), new THREE.Vector3(0,0,0), 1, 0x4477cc, 0.08, 0.05);
+    const axisArrowA = new THREE.ArrowHelper(new THREE.Vector3(1,0,0), new THREE.Vector3(0,0,0), 1, 0xcc4444, 0.10, 0.065);
+    const axisArrowB = new THREE.ArrowHelper(new THREE.Vector3(0,1,0), new THREE.Vector3(0,0,0), 1, 0x339933, 0.10, 0.065);
+    const axisArrowC = new THREE.ArrowHelper(new THREE.Vector3(0,0,1), new THREE.Vector3(0,0,0), 1, 0x4477cc, 0.10, 0.065);
     axisGroup.add(axisArrowA, axisArrowB, axisArrowC);
 
     const labelA = createLabel("a", "#cc4444");
@@ -232,9 +232,9 @@ export default function App() {
         const dir = new THREE.Vector3(...p.polarDir).normalize();
         const origin = ge.position.clone();
         const arrowHelper = new THREE.ArrowHelper(
-          dir, origin, 0.55,
+          dir, origin, 0.65,
           new THREE.Color(p.color).getHex(),
-          0.12, 0.08
+          0.16, 0.11
         );
         arrowGroup.add(arrowHelper);
       }
@@ -246,19 +246,19 @@ export default function App() {
       const aVec = new THREE.Vector3(...corners[1]).sub(origin0);
       axisArrowA.position.copy(off);
       axisArrowA.setDirection(aVec.clone().normalize());
-      axisArrowA.setLength(aVec.length()+0.15, 0.08, 0.05);
+      axisArrowA.setLength(aVec.length()+0.15, 0.10, 0.065);
       labelA.position.copy(off).add(aVec.clone().normalize().multiplyScalar(aVec.length()+0.28));
 
       const bVec = new THREE.Vector3(...corners[2]).sub(origin0);
       axisArrowB.position.copy(off);
       axisArrowB.setDirection(bVec.clone().normalize());
-      axisArrowB.setLength(bVec.length()+0.15, 0.08, 0.05);
+      axisArrowB.setLength(bVec.length()+0.15, 0.10, 0.065);
       labelB.position.copy(off).add(bVec.clone().normalize().multiplyScalar(bVec.length()+0.28));
 
       const cVec = new THREE.Vector3(...corners[4]).sub(origin0);
       axisArrowC.position.copy(off);
       axisArrowC.setDirection(cVec.clone().normalize());
-      axisArrowC.setLength(cVec.length()+0.15, 0.08, 0.05);
+      axisArrowC.setLength(cVec.length()+0.15, 0.10, 0.065);
       labelC.position.copy(off).add(cVec.clone().normalize().multiplyScalar(cVec.length()+0.28));
     };
 
@@ -483,8 +483,8 @@ export default function App() {
         borderTop: "1px solid rgba(45,36,24,0.05)",
       }}>
         {[
-          { color: "#ddaa22", label: "Cs⁺ (A-site, corners)" },
-          { color: "#22aaaa", label: "Ge²⁺ (B-site, center)" },
+          { color: "#c9982a", label: "Cs⁺ (A-site, corners)" },
+          { color: "#2a8f8f", label: "Ge²⁺ (B-site, center)" },
           { color: "#cc6633", label: "Br⁻ (X-site, faces)" },
           { color: phase.color, label: "P ∥ [111]", arrow: true },
         ].map((l, i) => (
