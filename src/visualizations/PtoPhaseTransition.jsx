@@ -108,19 +108,19 @@ export default function App() {
     });
 
     // Ti atom at center
-    const ti = createSphere(0.14, 0x4488ff, 0x112244);
+    const ti = createSphere(0.14, 0x3d72c4, 0x1a2e50);
     cellGroup.add(ti);
 
     // O atoms at face centers (6 faces)
     const oAtoms = [];
     for (let i = 0; i < 6; i++) {
-      const o = createSphere(0.12, 0xff4444, 0x331111);
+      const o = createSphere(0.12, 0xc44040, 0x3a1818);
       cellGroup.add(o);
       oAtoms.push(o);
     }
 
     // Wireframe edges
-    const edgeMat = new THREE.LineBasicMaterial({ color: 0x2d2418, transparent: true, opacity: 0.15 });
+    const edgeMat = new THREE.LineBasicMaterial({ color: 0x2d2418, transparent: true, opacity: 0.3 });
     const edgeGeo = new THREE.BufferGeometry();
     const edgeLines = new THREE.LineSegments(edgeGeo, edgeMat);
     cellGroup.add(edgeLines);
@@ -150,9 +150,9 @@ export default function App() {
       return sprite;
     };
 
-    const axisArrowA = new THREE.ArrowHelper(new THREE.Vector3(1,0,0), new THREE.Vector3(0,0,0), 1, 0xcc4444, 0.08, 0.05);
-    const axisArrowB = new THREE.ArrowHelper(new THREE.Vector3(0,1,0), new THREE.Vector3(0,0,0), 1, 0x339933, 0.08, 0.05);
-    const axisArrowC = new THREE.ArrowHelper(new THREE.Vector3(0,0,1), new THREE.Vector3(0,0,0), 1, 0x4477cc, 0.08, 0.05);
+    const axisArrowA = new THREE.ArrowHelper(new THREE.Vector3(1,0,0), new THREE.Vector3(0,0,0), 1, 0xcc4444, 0.10, 0.065);
+    const axisArrowB = new THREE.ArrowHelper(new THREE.Vector3(0,1,0), new THREE.Vector3(0,0,0), 1, 0x339933, 0.10, 0.065);
+    const axisArrowC = new THREE.ArrowHelper(new THREE.Vector3(0,0,1), new THREE.Vector3(0,0,0), 1, 0x4477cc, 0.10, 0.065);
     axisGroup.add(axisArrowA, axisArrowB, axisArrowC);
 
     const labelA = createLabel("a", "#cc4444");
@@ -228,9 +228,9 @@ export default function App() {
         const dir = new THREE.Vector3(...p.polarDir).normalize();
         const origin = new THREE.Vector3(p.tiShift[0], p.tiShift[1], p.tiShift[2]);
         const arrowHelper = new THREE.ArrowHelper(
-          dir, origin, 0.65,
+          dir, origin, 0.75,
           new THREE.Color(p.color).getHex(),
-          0.12, 0.08
+          0.16, 0.11
         );
         arrowGroup.add(arrowHelper);
       }
@@ -242,19 +242,19 @@ export default function App() {
       const aVec = new THREE.Vector3(...corners[1]).sub(origin0);
       axisArrowA.position.copy(off);
       axisArrowA.setDirection(aVec.clone().normalize());
-      axisArrowA.setLength(aVec.length() + 0.15, 0.08, 0.05);
+      axisArrowA.setLength(aVec.length() + 0.15, 0.10, 0.065);
       labelA.position.copy(off).add(aVec.clone().normalize().multiplyScalar(aVec.length() + 0.28));
 
       const bVec = new THREE.Vector3(...corners[2]).sub(origin0);
       axisArrowB.position.copy(off);
       axisArrowB.setDirection(bVec.clone().normalize());
-      axisArrowB.setLength(bVec.length() + 0.15, 0.08, 0.05);
+      axisArrowB.setLength(bVec.length() + 0.15, 0.10, 0.065);
       labelB.position.copy(off).add(bVec.clone().normalize().multiplyScalar(bVec.length() + 0.28));
 
       const cVec = new THREE.Vector3(...corners[4]).sub(origin0);
       axisArrowC.position.copy(off);
       axisArrowC.setDirection(cVec.clone().normalize());
-      axisArrowC.setLength(cVec.length() + 0.15, 0.08, 0.05);
+      axisArrowC.setLength(cVec.length() + 0.15, 0.10, 0.065);
       labelC.position.copy(off).add(cVec.clone().normalize().multiplyScalar(cVec.length() + 0.28));
     };
 
@@ -525,8 +525,8 @@ export default function App() {
       }}>
         {[
           { color: "#cc8822", label: "Pb²⁺ (corners)" },
-          { color: "#4488ff", label: "Ti⁴⁺ (center)" },
-          { color: "#ff4444", label: "O²⁻ (faces)" },
+          { color: "#3d72c4", label: "Ti⁴⁺ (center)" },
+          { color: "#c44040", label: "O²⁻ (faces)" },
           { color: phase.color, label: "P (polarization)", arrow: true },
         ].map((l, i) => (
           <div key={i} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: "rgba(45,36,24,0.55)" }}>
