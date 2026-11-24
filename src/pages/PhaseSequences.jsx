@@ -21,11 +21,14 @@ const phases = [
   },
   {
     material: "PbZrO\u2083 (PZO)",
-    slug: null,
+    slug: "pzo-phase-transitions",
     rows: [
       { phase: "Cubic paraelectric", spaceGroup: "Pm\u03053m", pointGroup: "m\u03053m", crystal: "Cubic", temp: "> ~505 K" },
       { phase: "Antiferroelectric", spaceGroup: "Pbam", pointGroup: "mmm", crystal: "Orthorhombic", temp: "< ~505 K" },
       { phase: "(possible polar phases under field/strain)", spaceGroup: "Pba2 / Pca2\u2081", pointGroup: "mm2", crystal: "Orthorhombic", temp: "induced" },
+      { phase: "Tilted rhombohedral ferroelectric (metastable)", spaceGroup: "R3c", pointGroup: "3m", crystal: "Trigonal", temp: "field-induced candidate" },
+      { phase: "Rhombohedral ferroelectric (metastable)", spaceGroup: "R3m", pointGroup: "3m", crystal: "Trigonal", temp: "debated, within a few K of ~505 K" },
+      { phase: "Tetragonal ferroelectric (hypothetical)", spaceGroup: "P4mm", pointGroup: "4mm", crystal: "Tetragonal", temp: "DFT only" },
     ],
   },
   {

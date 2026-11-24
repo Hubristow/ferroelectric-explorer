@@ -19,6 +19,13 @@ const materials = [
     latticeConstant: 7.35551,
     bornEffectiveCharge: 9.147,
   },
+  {
+    // LDA effective-Hamiltonian reference values, arXiv:2211.04679, Table 1
+    name: "PbZrO\u2083 (PZO)",
+    slug: "pzo-phase-transitions",
+    latticeConstant: 7.763,
+    bornEffectiveCharge: 6.383,
+  },
 ];
 
 export default function MaterialProperties() {

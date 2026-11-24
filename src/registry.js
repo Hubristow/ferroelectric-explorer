@@ -29,6 +29,14 @@ const registry = [
     component: lazy(() => import("./visualizations/PtoPhaseTransition.jsx")),
   },
   {
+    slug: "pzo-phase-transitions",
+    title: "PbZrO\u2083 Phases",
+    subtitle: "Cubic \u2192 Antiferroelectric Pbam, with competing polar P4mm, R3m and R3c",
+    category: "Phase Transitions",
+    color: "#c4952a",
+    component: lazy(() => import("./visualizations/PzoPhaseTransitions.jsx")),
+  },
+  {
     slug: "cgb-phase-transition",
     title: "CsGeBr\u2083 Phase Transition",
     subtitle: "Cubic \u2192 Rhombohedral halide perovskite",
